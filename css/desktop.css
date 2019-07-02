@@ -1,0 +1,31 @@
+.paddedPageDiv {
+    border: 2px solid black;
+    margin: 8% 20% 0% 20%; 
+    padding: 3% 3% 3% 2%;
+    position: absolute;
+    width: 60%;
+    z-index: 1;
+}
+
+.headDiv {
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+
+h1 {
+    font-size: 36pt;
+}
+
+h5 {
+    font-size: 18pt;
+}
+
+p {
+    font-size: 12pt;
+}
+
+.homeSpacing {
+    margin-left: 15%;
+} 
+
