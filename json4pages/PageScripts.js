@@ -17,7 +17,7 @@ function loadRecipe() {
             var htmlstuff = "<h1>" + data.id + "</h1>";
             htmlstuff += "<h3>" + data.dishType + "</h3> ";
             htmlstuff += "<h4>" + data.time + "</h4> ";
-            htmlstuff +=  "<h3> Ingredients: </h3> <ol> ";
+            htmlstuff += "<h3> Ingredients: </h3> <ol> ";
             data.ingredients.forEach(element => {
                 htmlstuff += "<li> " + element.name;
                 if (element.locked == "true") htmlstuff += ", " + element.quantity;
