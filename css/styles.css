@@ -260,10 +260,10 @@ footer {
         order: 0;
     }
     .image .imgbg {
-        width: 400px;
+        width: 500px;
     }
     .image .imgfg {
-        width: 500px;
+        width: 400px;
     }
     .text {
         margin-top: 0;
