@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;1,300&display=swap');
 html,
 body {
@@ -22,6 +22,10 @@ h6 {
     padding: 0;
 }
 
+h1 {
+    font-size: 32px;
+}
+
 :root {
     --strokes: #ccc;
     --bg: #fcfdfe;
@@ -32,7 +36,6 @@ h6 {
 .sector {
     position: relative;
     width: 100vw;
-    height: 50vh;
 }
 
 .sector-1 {
@@ -103,16 +106,74 @@ h6 {
     transform: translateX(-50%);
     display: flex;
     overflow: hidden;
+    width: 9px;
 }
 
 .floater5 svg {
     align-self: center;
-    width: 20px;
+    width: 7px;
     height: 12vw;
 }
 
 .section-content {
     margin: 0 1rem;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+}
+
+.project {
+    margin: 5rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.left {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.right {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.text {
+    flex-direction: column;
+    order: 2;
+    margin-top: 50px;
+}
+
+.image {
+    position: relative;
+    height: 500px;
+    order: 1;
+}
+
+.image .imgbg {
+    position: relative;
+    width: 500px;
+}
+
+.image .imgfg {
+    position: absolute;
+    top: calc(50% - 100px);
+    width: 400px;
+    border-radius: 2px;
+}
+
+strong {
+    font-weight: 500;
 }
 
 @keyframes floater-animation {
@@ -146,5 +207,27 @@ h6 {
     }
     .section-content {
         margin: 0 4rem;
+    }
+    .project {
+        grid-template-columns: 1fr 1fr;
+    }
+    .left {
+        margin-left: 10vw;
+        margin-right: 5vw;
+        align-items: flex-end;
+        text-align: right;
+    }
+    .right {
+        margin-left: 5vw;
+        margin-right: 10vw;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .image,
+    .text {
+        order: 0;
+    }
+    .text {
+        margin-top: 0;
     }
 }
