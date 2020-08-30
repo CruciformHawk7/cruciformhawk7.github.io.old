@@ -152,7 +152,7 @@ h1 {
 .text {
     flex-direction: column;
     order: 2;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .image {
@@ -163,13 +163,13 @@ h1 {
 
 .image .imgbg {
     position: relative;
-    width: 500px;
+    width: 80vw;
 }
 
 .image .imgfg {
     position: absolute;
     top: calc(50% - 100px);
-    width: 400px;
+    width: 95vw;
     border-radius: 2px;
 }
 
@@ -258,6 +258,12 @@ footer {
     .image,
     .text {
         order: 0;
+    }
+    .imgbg {
+        width: 400px;
+    }
+    .imgfg {
+        width: 500px;
     }
     .text {
         margin-top: 0;
