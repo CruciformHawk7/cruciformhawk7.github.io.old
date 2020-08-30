@@ -259,10 +259,10 @@ footer {
     .text {
         order: 0;
     }
-    .imgbg {
+    .image .imgbg {
         width: 400px;
     }
-    .imgfg {
+    .image .imgfg {
         width: 500px;
     }
     .text {
