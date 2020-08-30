@@ -117,6 +117,7 @@ h1 {
 
 .section-content {
     margin: 0 1rem;
+    text-align: center;
 }
 
 .projects {
@@ -176,6 +177,37 @@ strong {
     font-weight: 500;
 }
 
+a {
+    color: var(--text);
+    transition: color 300ms ease-in-out;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+footer {
+    background: var(--text);
+    color: var(--bg);
+    padding: 3rem 5rem;
+}
+
+.foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.foot a {
+    color: var(--bg);
+    align-self: center;
+}
+
+.foot a>* {
+    width: 3rem;
+    margin: 10px;
+}
+
 @keyframes floater-animation {
     from {
         transform: translateX(10px) rotate(0deg);
@@ -229,5 +261,8 @@ strong {
     }
     .text {
         margin-top: 0;
+    }
+    .foot {
+        flex-direction: row;
     }
 }
