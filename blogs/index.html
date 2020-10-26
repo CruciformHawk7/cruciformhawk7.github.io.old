@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="redir.js"></script>
+    <script type="text/javascript">
+        recieveRedirect()
+    </script>
+    <title>Nikhil Hari Blog</title>
+</head>
+
+<body>
+    <input type="button" value="T1" onclick="onNavItemClick('T1')" />
+    <input type="button" value="T2" onclick="onNavItemClick('T2')" />
+
+    <div id="contentDiv"></div>
+</body>
+
+<script>
+    let routes = {
+        '/blogs': 'Home',
+        '/blogs/T1': 'T1',
+        '/blogs/T2': 'T2'
+    };
+    let contentDiv = $('#contentDiv');
+    let onNavItemClick = (pathName) => {
+        let fullPath = "/blogs/" + pathName;
+        window.history.pushState({},
+            fullPath,
+            window.location.origin + fullPath
+        );
+        contentDiv.innerHTML = routes[fullPath];
+    }
+    window.onpopstate = () => {
+        contentDiv.innerHTML = routes[window.location.pathname];
+    }
+    contentDiv.innerHTML = routes[window.location.pathname];
+</script>
+
+</html>
