@@ -1,0 +1,628 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Data Mining in 2050</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="206ff37d-19cf-4062-8caf-f75152365793" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1523848309072-c199db53f137?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjYzOTIxfQ" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://purepng.com/public/uploads/medium/purepng.com-fortnite-pickaxefortnitefortnite-battle-royalebattle-royaleepic-gamesgames-1251525435892miwit.png"/></div><h1 class="page-title">Data Mining in 2050</h1></header><div class="page-body"><p id="c679030a-fbd8-48d2-8219-ec1d43a9c07d" class="">Startling to a heap of clothes on a chair after a nap, thinking that it was someone watching you sleep. We all have had this happen to us. Human minds love to <mark class="highlight-blue"><strong>recognise patterns</strong></mark>. There are various theories revolving around this, but the reason is clear: It is better to see a danger and be prepared than waste time admiring the beauty of something</p><figure id="566502d3-a6c9-48a5-9289-82205e08020a" class="image"><a><img style="width:1008px" src="DataMiningin2050/Untitled.png"/></a><figcaption>This image has no animals. Yet, if you look close, you can see many animals, an elephant, a cheetah.</figcaption></figure><p id="0af57676-df2a-4379-88d4-a58491c4985c" class="">If a lion were to stalk you, hiding in a bush, you&#x27;d notice the lion&#x27;s face and immediately run, rather than wait and look at what species of lion it is, and calculate what your chances of being attacked are. Recognising patterns helps humans understand what to expect next.</p><p id="d6e422af-8411-4ed7-b296-d74b9a208626" class="">Humans have lived in the wild as primates, and this behaviour is what we are shaped with - we try to perceive patterns on almost anything. The things you see, the music you listen to, the food you eat, etc. Learning patterns helps humans understand the situation, and <mark class="highlight-blue"><strong>predict</strong></mark><strong> </strong>what is next.</p><p id="1214b809-0c17-430b-a634-0f5a8f2d0829" class="">Humans learn from patterns too. We look at the alphabet as a young child, and now we know how the letter A looks, no matter how obscure it looks. We learn this from experience. We interact with each other in a similar fashion. When you read this article, notice how these &quot;words&quot; are just a bunch of letters together. Letters separated doesn&#x27;t make any sense, however when put together, they give an implicit meaning; its a pattern of letters together that makes some sense to you. </p><figure id="c8bf42d4-b4fa-4954-9662-8c3d03d59737" class="image"><a href="https://thumbs.gfycat.com/SpeedyThoroughEel-small.gif"><img style="width:576px" src="https://thumbs.gfycat.com/SpeedyThoroughEel-small.gif"/></a></figure><p id="6f1a3eed-78d1-4837-a4b1-32943e28e678" class="">Humans rely on computer machines for their everyday task. Computers, unlike Humans, don&#x27;t quite work on patterns, but rather combination of switches, or to simplify, purely on mathematics. To make these mathematical wonders make sense of data the way you do, you need to make it think like a human. Fortunately, great scientists have discovered various ways in which computers make sense of our data. This science of teaching computers to <mark class="highlight-blue"><strong>learn</strong></mark><mark class="highlight-blue"> </mark>and recognise <mark class="highlight-blue"><strong>patterns</strong></mark><mark class="highlight-blue"> </mark>and make <mark class="highlight-blue"><strong>sense</strong></mark>, <mark class="highlight-blue"><strong>decipher</strong></mark>, and <mark class="highlight-blue"><strong>predict</strong></mark><mark class="highlight-blue"> </mark>is dealt in <mark class="highlight-blue"><strong>Data Mining</strong></mark>. </p><p id="7feb7f05-86d4-4bd6-b4c6-c1d9e9d141a7" class="">Data mining is used my almost all the gadgets around you. Advertisements that you see on almost all the pages tailored to your recommendations always go through the data mining process to get ads of products you might like. These days, data mining isn&#x27;t the game of the big companies. </p><div id="31d6c815-af58-460a-8c76-294e06191187" class="column-list"><div id="0654186f-53aa-4834-a972-ee776f0e6a27" style="width:62.5%" class="column"><p id="cd993a70-4712-46ce-9786-dae4ebc814af" class="">Chances are that the local supermarket knows by a chance how likely you are going to buy a product.  Some might call this privacy intrusion, but if you teach a computer to think like you, it surely can predict what you think. So if a computer can think like a human, will it be able to make bad decisions? Will 2050 be the year where we created a machine to rule over us? Most likely, not yet. Not so fast. </p></div><div id="9330d5f8-e325-468a-9917-9bb2289eb8fd" style="width:37.50000000000001%" class="column"><blockquote id="96f7dd6a-0043-45b1-ba9a-5ebf57f01da6" class="block-color-blue_background">So if a computer can think like a human, will it be able to make bad decisions? Will 2050 be the year where we created a machine to rule over us? </blockquote></div></div><p id="5360147e-d117-4aaf-8983-301cff4df126" class="">As bad as the above paragraph sounded, no, computers aren&#x27;t used to sell products alone. Various corporations are pouring for a great research to help out education, specially-abled people, healthcare, etc. The machines aren&#x27;t taught to think like a human, but to emulate a part of your emotional thinking. In other words, the advertising companies only know how you think about various products, the healthcare companies only know how bad your health condition is, and a company working for the specially abled probably only knows how well you&#x27;re doing, isn&#x27;t that sweet?</p><figure id="e45eef9c-d456-4c37-b69a-59ad212026a8" class="image"><a href="https://i.gifer.com/QgYQ.gif"><img style="width:768px" src="https://i.gifer.com/QgYQ.gif"/></a><figcaption>Going 2050! from ...1980?</figcaption></figure><p id="94f0a081-91b5-479c-b9ff-7831b05dc7e9" class=""><strong>Disclaimer</strong> I am not from the future.</p><p id="0bd6beb7-3daa-4794-84f0-77950889d707" class="">Cold war won&#x27;t go anytime soon, but instead of guns and weapons, it would be with data. Huge organisations have been critiqued to be selling data about its users around (it is happening right now, too). It may reach bad hands, so the countries introduce stricter policies, making the data local to the country only. This is a common security concept, and it surely will start by 2025. Maybe there are companies who will make copies of your brain so that you can live forever. While all this might sound spooky, lets go with a positive thought.</p><figure id="225749af-1f0a-4db9-80f6-5306df568dd0" class="image"><a href="https://thumbs.gfycat.com/AlarmedLameAmericancrayfish-size_restricted.gif"><img style="width:576px" src="https://thumbs.gfycat.com/AlarmedLameAmericancrayfish-size_restricted.gif"/></a></figure><p id="2cd3cfe2-8061-4bd9-b274-83eb8ad4deb4" class="">Today, we have machines that are <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac linethickness="0.1em"><mn>1</mn><mn>25000</mn></mfrac></mrow><annotation encoding="application/x-tex">{1 \above{1pt} 25000}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.202216em;vertical-align:-0.351108em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.851108em;"><span style="top:-2.648892em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">5</span><span class="mord mtight">0</span><span class="mord mtight">0</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.2em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.1em;"></span></span><span style="top:-3.4em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.351108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span><span>﻿</span></span>th the human brain. It merely emulates a frog! Maybe there&#x27;s a day when we create the first ever human brain emulation, by 2050, and we reach 100% cerebral capacity (or more). Pretty sure Morgan Freeman would want to know about this. What can we do with this? Well, we will have our first computer with real emotions, real thinking power and real understanding, who will never be tired like a human but fast enough and will get over human laziness. Imagine that person as a human, they&#x27;d be smarter than Einstein! In the future, Alexa might be far gone and disappeared, and you have your own intelligence transferred onto a portable system that is connected with your brain, and are always talking to your new assistant, who is just your own thoughts, powered by a computer. Smart homes that turn devices home on/off just when you think of it, now that your intelligence can be transferred to a computer system, and it thinks just like you do. Maybe you can travel from one point to another just by thinking of it. </p><p id="89507213-72f2-4e07-a417-39c2105110c8" class="">While we have great hopes about our future, I might be completely wrong - maybe new technologies arrive that will make this place a better world.</p><div id="48cfe1ef-c602-4309-9864-9292f1d38b1c" class="column-list"><div id="82ff54d5-ee64-456b-aefb-71d96a197af3" style="width:50%" class="column"><p id="b779962c-2b7d-40eb-9b9d-267707653c25" class="">
+</p></div><div id="0864c6f7-bca0-416b-9382-e3704a8ee1ea" style="width:50%" class="column"><p id="094d75a8-cf33-4ccc-b03b-d1681f0970a4" class="">- Nikhil Hari</p></div></div></div></article></body></html>
